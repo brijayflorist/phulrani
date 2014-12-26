@@ -1,0 +1,6 @@
+@import url("footer.css");
+/*@import url("[component].css");*/
+
+body  {
+  height: auto !important;
+}

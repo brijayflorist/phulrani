@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+<!-- Application Core CSS -->
+    <link rel="stylesheet" href="lib/angular-material/angular-material.css">
+    <link rel="stylesheet" href="lib/angular-material/themes/amber-theme.css">
+    <link href="css/style.css" rel="stylesheet">
+<!-- Application Core CSS -->
+
+<!-- Bootstrap CSS -->
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!-- Bootstrap CSS -->
+
+<!-- JQuery -->
+    <script src="lib/jquery/jquery-1.11.1.min.js"></script>
+<!-- JQuery -->
+
+<!-- Bootstrap Lib-->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<!-- Bootstrap Lib -->
+
+<!-- angularjs js -->
+	<script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-material/hammer.js"></script>
+    <script src="lib/angular-material/angular-aria.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
+<!-- ionic/angularjs js -->
+
+<!-- Angular Bootstrap module-->
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+<!-- Angular Bootstrap module -->
+
+<!-- Angular Ui-Router module -->
+    <script src="lib/angular-ui-router/angular-ui-router.min.js"></script>
+<!-- Angular Ui-Router module -->
+
+<!-- Angular Animate module -->
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+<!-- Angular Animate module -->
+
+<!-- App's Directives -->
+	<!--<script src="directives/[directive].js"></script> -->
+<!-- App's Directives -->
+    
+<!-- App's js -->
+    <script src="js/app.js"></script>
+    <script src="js/stateRoutings.js"></script>
+<!-- App's js -->
+    
+<!-- Controllers -->
+	<!-- <script src="controllers/[module]/[controller].js"></script> -->
+	<script src="controllers/main/homePageController.js"></script>
+	<script src="controllers/main/navigationMenuController.js"></script>
+	<script src="controllers/main/bannerController.js"></script>
+	<script src="controllers/main/footerPageController.js"></script>
+<!-- Controllers -->
+
+
+<!-- Models -->
+	<!--<script src="models/[module]/[model].js"></script> -->
+	<script src="models/products/productsStore.js"></script>
+	<script src="models/categories/categoriesStore.js"></script>
+<!-- Models -->
+   
+  </head>
+  <body ng-app="phulrani" ng-controller="Init">
+     <div ui-view="HeadBanner"></div>
+	 <div ui-view="NavigationMenu"></div>
+	 <div ui-view="PageContent"></div>
+	 <div ui-view="FooterContent"></div>
+  </body>
+</html>

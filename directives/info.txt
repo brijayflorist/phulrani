@@ -1,0 +1,4 @@
+Any custom angularJS directives to be placed here.
+Place each directive within its own directory in case it requires its own resources
+Else
+Can individual files can ple placed directly
