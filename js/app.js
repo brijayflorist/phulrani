@@ -17,7 +17,7 @@ phulrani.config(function ($logProvider) {
 * App Initialization 
 */
 phulrani.controller('Init', function ($state) {
-    $state.transitionTo('home');
+    $state.transitionTo('main.home');
 });
 
 
