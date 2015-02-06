@@ -8,14 +8,14 @@ angular.module('productsStore.services', [])
 
     // Some fake testing data
     var products = [
-	                { id: 1, name: 'boquet1', photo: "img/ionic.png", category:'c1,c2,c3,c4'},
-	                { id: 2, name: 'boquet2', photo: "img/ionic.png", category:'c1,c7,c3,c5' },
-	                { id: 3, name: 'boquet3', photo: "img/ionic.png", category:'c1,c8,c9,c4' },
-	                { id: 4, name: 'boquet4', photo: "img/ionic.png", category:'c1,c6,c3,c9' },
-					{ id: 5, name: 'flower1', photo: "img/ionic.png", category:'c5,c6,c8,c9' },
-	                { id: 6, name: 'flower2', photo: "img/ionic.png", category:'c1,c2' },
-	                { id: 7, name: 'plant1', photo: "img/ionic.png", category:'c1,c9' },
-	                { id: 8, name: 'plant2', photo: "img/ionic.png", category:'c1,c3,c6' }
+	                { id: 1, name: "boquet1", longInfo: "some long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 2, 3, 4] },
+	                { id: 2, name: "boquet2", longInfo: "some  long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 7, 3, 5] },
+	                { id: 3, name: "boquet3", longInfo: "some  long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 8, 9, 4] },
+	                { id: 4, name: "boquet4", longInfo: "some  long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 6, 3, 9] },
+					{ id: 5, name: "flower1", longInfo: "some  long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [5, 6, 8, 9] },
+	                { id: 6, name: "flower2", longInfo: "some  long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 2] },
+	                { id: 7, name: "plant1", longInfo: "some  long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 9] },
+	                { id: 8, name: "plant2", longInfo: "some long  Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 3, 6] }
 	               ];
 
     return {
@@ -53,6 +53,22 @@ angular.module('productsStore.services', [])
             ////NR:TODO:  Mock  ////
 
             deferredFetch.resolve(productByID);
+            return deferredFetch.promise;
+        },
+        getProductsByCategory: function (categoryID) {
+            // Search on patients
+            var deferredFetch = $q.defer();
+            var productsByCategory;
+            ////NR:TODO:  Mock  ////
+            if (categoryID && categoryID !== "") {
+                productsByCategory = ($filter('filter')(products, function (value, index) { return _.contains(value.category, JSON.parse(categoryID)); }));
+            } else {
+                productsByCategory = null;
+            }
+            // return null if not found
+            ////NR:TODO:  Mock  ////
+
+            deferredFetch.resolve(productsByCategory);
             return deferredFetch.promise;
         }
     }

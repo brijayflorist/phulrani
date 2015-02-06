@@ -3,7 +3,8 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 
 var phulrani = angular.module('phulrani', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'ngMaterial',
-											'home.banner', 'home.footer', 'home.homePage', 'home.navigation'
+											'home.banner', 'home.footer', 'home.homePage', 'home.navigation',
+                                            'home.categoryDetails'
 										  ]);
 
 /*

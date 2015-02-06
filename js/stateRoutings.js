@@ -37,11 +37,14 @@
 			}
         })
         .state('main.category', {
-            url: '/category/:id',
+            url: '/category/:categoryID',
+            resolve: {
+                productsByCategory: function (ProductsStore, $stateParams) { return ProductsStore.getProductsByCategory($stateParams.categoryID); }
+            },
             views: {
                 'PageContent@': {
                     templateUrl: "views/categories/categoryDetails.html",
-                    controller: function ($scope, $state, $stateParams) { alert("Category ID : " + $stateParams.id); }
+                    controller: "categoryDetailsController"
                 }
             }
         }

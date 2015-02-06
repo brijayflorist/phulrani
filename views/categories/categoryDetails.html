@@ -1,1 +1,17 @@
-﻿Categories dynamic html to be generated based on category and its related products. [data to be pulled from Categories store n product store.]
+﻿<div class="wrapper">
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Title 1
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div >
+                        <product-info-box ng-repeat="product in products" class="col-xs-6 col-md-3" product="product"></product-info-box>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
