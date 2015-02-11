@@ -130,7 +130,7 @@ categoryMenuDirective.directive('categoriesMenu', function (CategoriesStore,$tim
 
 		    var link = function (scope, element, attr) {
 		        var menuBar = angular.element('<ul class="nav navbar-nav"></ul>');
-		        var homeMenuItem = angular.element('<li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>');
+		        var homeMenuItem = angular.element('<li class="active"><a href="#/home">Home <span class="sr-only">(current)</span></a></li>');
 		        menuBar.append(homeMenuItem);
 			
 		        var rootCategoriesFetchPromise = CategoriesStore.getRootCategories();

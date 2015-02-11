@@ -15,7 +15,9 @@
     <!-- Bootstrap CSS -->
     <!-- SmartMenus jQuery Bootstrap Addon CSS -->
     <link rel="stylesheet" href="lib/smart-menus/addons/bootstrap/jquery.smartmenus.bootstrap.css">
+    <!-- Jssor Lib CSS -->
     <link href="css/jssor.slider.css" rel="stylesheet" />
+
     <!-- JQuery -->
     <script src="lib/jquery/jquery-1.11.1.min.js"></script>
     <!-- JQuery -->
@@ -28,6 +30,11 @@
     
     <!-- SmartMenus jQuery plugin -->
     <script type="text/javascript" src="lib/smart-menus/jquery.smartmenus.js"></script>
+
+    <!-- Jssor Lib-->
+    <script src="lib/jssor/jssor.js"></script>
+    <script src="lib/jssor/jssor.slider.js"></script>
+    <!-- Jssor Lib-->
 
     <!-- angularjs js -->
     <script src="lib/angular/angular.js"></script>
@@ -48,6 +55,7 @@
     <!--<script src="directives/[directive].js"></script> -->
     <script src="directives/menuBuilder.js"></script>
     <script src="directives/productInfo.js"></script>
+    <script src="directives/dang-jssor.js"></script>
     <!-- App's Directives -->
     <!-- App's js -->
     <script src="js/app.js"></script>
@@ -72,7 +80,6 @@
 <body ng-app="phulrani" ng-controller="Init">
     <div ui-view="HeadBanner"></div>
     <div ui-view="NavigationMenu"></div>
-    <div ui-view="Carousel"></div>
     <div ui-view="PageContent"></div>
     <div ui-view="FooterContent"></div>
 </body>

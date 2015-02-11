@@ -1,49 +1,33 @@
 <div class="wrapper">
+
+
+    <div class="slides-container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;margin:0px auto;">
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
+            <div ng-repeat="image in carouselImages" enable-jssor jssor-options="homePageCarouselConfig" jssor-trigger={{$last}}>
+                <center><img u=" image" src="" ng-src={{image.path}} /></center>
+            </div>
+        </div>
+        <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora11l" style="width: 28px; height: 40px; top: 123px; left: 8px;">
+        </span>
+        <!-- Arrow Right -->
+        <span u="arrowright" class="jssora11r" style="width: 28px; height: 40px; top: 123px; right: 8px">
+        </span>
+        <!-- Arrow Navigator Skin End -->
+    </div>
+
+
     <div class="container">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Title 1
+                This is yet to be built [Category based products here]
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-xs-6 col-md-3">
-
-                        <a href="#" class="thumbnail">
-                            <img class="img-responsive" alt='flower' src='img/flower.jpg' />
-                        </a>
-                        <div class="caption text-center bg-primary">
-                            Name 0
-                        </div>
-                        <div class="bg-info">
-                            Flower description will come here
-                        </div>
-                        <div class="caption text-center bg-primary">
-                            Price 0
-                        </div>
-
-                    </div>
-
+                    <product-info-box ng-repeat="product in categoryProducts" class="col-xs-6 col-md-3" product="product"></product-info-box>
                 </div>
             </div>
         </div>
     </div>
 </div> <!-- .wrapper -->
-
-
-<div class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                <p>One fine body&hellip;</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
