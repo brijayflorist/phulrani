@@ -1,22 +1,22 @@
 <div class="wrapper">
 
-
-    <div class="slides-container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;margin:0px auto;">
-        <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
-            <div ng-repeat="image in carouselImages" enable-jssor jssor-options="homePageCarouselConfig" jssor-trigger={{$last}}>
-                <center><img u=" image" src="" ng-src={{image.path}} /></center>
+    <!--<div style="height: auto; width: 50%; margin: 0px auto;">--> <!--Responsive container Div [NR: commented related code in directive too]-->
+        <div class="slides-container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px; margin: 0px auto;">
+            <!-- Slides Container -->
+            <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
+                <div ng-repeat="image in carouselImages" enable-jssor jssor-options="homePageCarouselConfig" jssor-trigger={{$last}}>
+                    <center><img u=" image" src="" ng-src={{image.path}} /></center>
+                </div>
             </div>
+            <!-- Arrow Left -->
+            <span u="arrowleft" class="jssora11l" style="width: 28px; height: 40px; top: 123px; left: 8px;">
+            </span>
+            <!-- Arrow Right -->
+            <span u="arrowright" class="jssora11r" style="width: 28px; height: 40px; top: 123px; right: 8px">
+            </span>
+            <!-- Arrow Navigator Skin End -->
         </div>
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora11l" style="width: 28px; height: 40px; top: 123px; left: 8px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora11r" style="width: 28px; height: 40px; top: 123px; right: 8px">
-        </span>
-        <!-- Arrow Navigator Skin End -->
-    </div>
-
+    <!--</div>-->
 
     <div class="container">
         <div class="panel panel-default">

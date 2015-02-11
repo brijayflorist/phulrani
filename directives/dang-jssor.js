@@ -27,6 +27,24 @@ angular.module("dang-jssor", [])
 	                    }
 	                    scope.$apply();
 	                });
+
+	                //responsive code begin
+	                //you can remove responsive code if you don't want the slider scales while window resizes
+                    // NR: Commenting this code as it causes dimension issues. Need to re work on Responsiveness
+	                //var ScaleSlider = function () {
+	                //    var parentWidth = slider.$Elmt.parentNode.clientWidth;
+	                //    if (parentWidth) {
+	                //        slider.$ScaleWidth(parentWidth - 30);
+	                //    }
+	                //    else
+	                //        window.setTimeout(ScaleSlider, 30);
+	                //};
+	                //ScaleSlider();
+
+	                //$(window).bind("load", ScaleSlider);
+	                //$(window).bind("resize", ScaleSlider);
+	                //$(window).bind("orientationchange", ScaleSlider);
+	                //responsive code end
 	            }
 	        }
 	    }
