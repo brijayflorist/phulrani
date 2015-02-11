@@ -16,7 +16,11 @@
                 'NavigationMenu': {
                     templateUrl: "views/main/navigationMenu.html",
                     controller: 'navigationMenuController'
-                 },	
+                },
+                'Carousel':{
+                    templateUrl: "views/main/carousel.html",
+                    controller: 'carouselController'
+                },
                 'PageContent': {
                     templateUrl: "views/main/homePageContent.html",
                     controller: 'homePageController'
