@@ -19,15 +19,17 @@
     <!--</div>-->
 
     <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                This is yet to be built [Category based products here]
+        <div class="" ng-repeat="featuredCategory in featuredCategories">
+            <div style="border-bottom:1px solid #ddd">
+                <span style="font-weight:bolder;line-height:20px;padding:5px;font-size: 1.5em;color:violet;">{{featuredCategory.categoryName}}</span>
+                <a href="#/category/{{featuredCategory.categoryID}}" style="float:right; padding:5px;cursor:pointer;">View all >></a>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <product-info-box ng-repeat="product in categoryProducts" class="col-xs-6 col-md-3" product="product"></product-info-box>
+            <div class="row">
+                <div>
+                    <product-info-box ng-repeat="product in featuredCategory.products" class="col-xs-6 col-md-3" product="product"></product-info-box>
                 </div>
             </div>
         </div>
     </div>
+
 </div> <!-- .wrapper -->

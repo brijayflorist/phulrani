@@ -1,6 +1,8 @@
-angular.module('home.homePage', ['dang-jssor'])
+angular.module('home.homePage', ['dang-jssor',
+                                 'phulrani.productInfoDirectives',
+                                 'productsStore.services','categoriesStore.services'])
 
-.controller('homePageController', function ($scope, $state) {
+.controller('homePageController', function ($scope, $state, ProductsStore, CategoriesStore) {
     //alert('Home Page content Controller');
     $scope.carouselImages = [{ "path": "img/flower.jpg" },
                             { "path": "img/flower1.jpg" },
@@ -47,12 +49,20 @@ angular.module('home.homePage', ['dang-jssor'])
         }
     };
 
-    $scope.categoryProducts = [
-                     { id: 1, name: "boquet1", longInfo: "some long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 2, 3, 4] },
-                     { id: 2, name: "boquet2", longInfo: "some  long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 7, 3, 5] },
-                     { id: 3, name: "boquet3", longInfo: "some  long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 8, 9, 4] },
-                     { id: 4, name: "boquet4", longInfo: "some  long Info", shortInfo: "some Info", price: "100", photo: "img/flower.jpg", thumbnail: "img/flower.jpg", tags: ["t1", "t2", "t3", "t4"], category: [1, 6, 3, 9] }
-                     ];
+    $scope.featuredCategories = [];
+    var featuredCategoriesPromise = CategoriesStore.getFeaturedCategories();
+    featuredCategoriesPromise.then(function (categories) {
+        angular.forEach(categories, function (value) {
+            var productsByCategoryPromise = ProductsStore.getProductsByCategory(value.id);
+            productsByCategoryPromise.then(function (products) {
+                if (products.length > 0) {
+                    $scope.featuredCategories.push({ "categoryID": value.id, "categoryName": value.name, "categoryLabel": value.label, "products": _.first(products, 2) });
+                }
+            });
+        });
+    });
+
+
 
 })
 
