@@ -27,7 +27,6 @@
     <!-- Bootstrap Lib-->
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <!-- Bootstrap Lib -->
-    
     <!-- SmartMenus jQuery plugin -->
     <script type="text/javascript" src="lib/smart-menus/jquery.smartmenus.js"></script>
 
@@ -35,7 +34,6 @@
     <script src="lib/jssor/jssor.js"></script>
     <script src="lib/jssor/jssor.slider.js"></script>
     <!-- Jssor Lib-->
-
     <!-- angularjs js -->
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-material/hammer.js"></script>
@@ -75,8 +73,102 @@
     <script src="models/products/productsStore.js"></script>
     <script src="models/categories/categoriesStore.js"></script>
     <!-- Models -->
-    
+    <style>
+        .navbar-default {
+            background-color: #FFDAB9;
+            border-color: #fff7e3;
+        }
+
+            .navbar-default .navbar-brand {
+                color: #000000;
+            }
+
+                .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+                    color: #ff6064;
+                }
+
+            .navbar-default .navbar-text {
+                color: #000000;
+            }
+
+            .navbar-default .navbar-nav > li > a {
+                color: #000000;
+            }
+
+                .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+                    color: #ff6064;
+                }
+
+            .navbar-default .navbar-nav > li > .dropdown-menu {
+                background-color: #FFDAB9;
+            }
+
+                .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+                    color: #000000;
+                }
+
+                    .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+                    .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+                        color: #ff6064;
+                        background-color: #fff7e3;
+                    }
+
+                .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+                    background-color: #FFDAB9;
+                }
+
+            .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+                color: #ff6064;
+                background-color: #fff7e3;
+            }
+
+            .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+                color: #ff6064;
+                background-color: #fff7e3;
+            }
+
+            .navbar-default .navbar-toggle {
+                border-color: #fff7e3;
+            }
+
+                .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+                    background-color: #fff7e3;
+                }
+
+                .navbar-default .navbar-toggle .icon-bar {
+                    background-color: #000000;
+                }
+
+            .navbar-default .navbar-collapse,
+            .navbar-default .navbar-form {
+                border-color: #000000;
+            }
+
+            .navbar-default .navbar-link {
+                color: #000000;
+            }
+
+                .navbar-default .navbar-link:hover {
+                    color: #ff6064;
+                }
+
+        @media (max-width: 767px) {
+            .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+                color: #000000;
+            }
+
+                .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+                    color: #ff6064;
+                }
+
+            .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+                color: #ff6064;
+                background-color: #fff7e3;
+            }
+        }
+    </style>
 </head>
+
 <body ng-app="phulrani" ng-controller="Init">
     <div ui-view="HeadBanner"></div>
     <div ui-view="NavigationMenu"></div>
@@ -84,5 +176,3 @@
     <div ui-view="FooterContent"></div>
 </body>
 </html>
-
-

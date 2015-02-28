@@ -1,33 +1,32 @@
 <div class="wrapper">
 
     <!--<div style="height: auto; width: 50%; margin: 0px auto;">--> <!--Responsive container Div [NR: commented related code in directive too]-->
-        <div class="slides-container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px; margin: 0px auto;">
-            <!-- Slides Container -->
-            <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
-                <div ng-repeat="image in carouselImages" enable-jssor jssor-options="homePageCarouselConfig" jssor-trigger={{$last}}>
-                    <center><img u=" image" src="" ng-src={{image.path}} /></center>
-                </div>
+    <div class="slides-container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px; margin: 0px auto;">
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
+            <div ng-repeat="image in carouselImages" enable-jssor jssor-options="homePageCarouselConfig" jssor-trigger={{$last}}>
+                <center><img u=" image" src="" ng-src={{image.path}} /></center>
             </div>
-            <!-- Arrow Left -->
-            <span u="arrowleft" class="jssora11l" style="width: 28px; height: 40px; top: 123px; left: 8px;">
-            </span>
-            <!-- Arrow Right -->
-            <span u="arrowright" class="jssora11r" style="width: 28px; height: 40px; top: 123px; right: 8px">
-            </span>
-            <!-- Arrow Navigator Skin End -->
         </div>
+        <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora11l" style="width: 28px; height: 40px; top: 123px; left: 8px;">
+        </span>
+        <!-- Arrow Right -->
+        <span u="arrowright" class="jssora11r" style="width: 28px; height: 40px; top: 123px; right: 8px">
+        </span>
+        <!-- Arrow Navigator Skin End -->
+    </div>
     <!--</div>-->
+    <p>&nbsp;</p>
 
     <div class="container">
-        <div class="" ng-repeat="featuredCategory in featuredCategories">
-            <div style="border-bottom:1px solid #ddd">
-                <span style="font-weight:bolder;line-height:20px;padding:5px;font-size: 1.5em;color:violet;">{{featuredCategory.categoryName}}</span>
-                <a href="#/category/{{featuredCategory.categoryID}}" style="float:right; padding:5px;cursor:pointer;">View all >></a>
+        <div class="panel panel-primary" ng-repeat="featuredCategory in featuredCategories">
+            <div class="panel-heading">
+                <span style="color:black">{{featuredCategory.categoryName}}</span>
+                <a href="#/category/{{featuredCategory.categoryID}}" style="float:right; padding:5px;cursor:pointer;color:black">View all >></a>
             </div>
-            <div class="row">
-                <div>
-                    <product-info-box ng-repeat="product in featuredCategory.products" class="col-xs-6 col-md-3" product="product"></product-info-box>
-                </div>
+            <div class="panel-body">
+                <product-info-box ng-repeat="product in featuredCategory.products" class="col-xs-6 col-md-3" product="product"></product-info-box>
             </div>
         </div>
     </div>

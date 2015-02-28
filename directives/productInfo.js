@@ -39,7 +39,7 @@ productInfoDirectives.directive('productInfoBox', function ($compile) {
 			outerBox.append(quickViewBtnWrapper);
 			outerBox.on("mouseenter", function (evt) {
 			    quickViewBtn.css("visibility", "visible");
-			    outerBox.css("border", "1px solid #ddd");
+			    outerBox.css("border", "1px solid #FFDAB9");
 			});
 			outerBox.on("mouseleave", function (evt) {
 			    quickViewBtn.css("visibility", "hidden");

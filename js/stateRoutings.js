@@ -39,7 +39,8 @@
         .state('main.category', {
             url: '/category/:categoryID',
             resolve: {
-                productsByCategory: function (ProductsStore, $stateParams) { return ProductsStore.getProductsByCategory($stateParams.categoryID); }
+                productsByCategory: function (ProductsStore, $stateParams) { return ProductsStore.getProductsByCategory($stateParams.categoryID); }//,
+               // category: function ($stateParams) { return ProductsStore.getCategory($stateParams.categoryID); }
             },
             views: {
                 'PageContent@': {
