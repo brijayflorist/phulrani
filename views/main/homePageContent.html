@@ -1,11 +1,11 @@
 <div class="wrapper">
 
     <!--<div style="height: auto; width: 50%; margin: 0px auto;">--> <!--Responsive container Div [NR: commented related code in directive too]-->
-    <div class="slides-container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px; margin: 0px auto;">
+    <div class="slides-container" style="position: relative; top: 0px; left: 0px;width: 900px;height: 300px; margin: 0px auto;">
         <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
+        <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 900px; height: 300px;">
             <div ng-repeat="image in carouselImages" enable-jssor jssor-options="homePageCarouselConfig" jssor-trigger={{$last}}>
-                <center><img u=" image" src="" ng-src={{image.path}} /></center>
+                <center><img u="image" src="" ng-src={{image.path}} /></center>
             </div>
         </div>
         <!-- Arrow Left -->
@@ -19,7 +19,7 @@
     <!--</div>-->
     <p>&nbsp;</p>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="panel panel-primary" ng-repeat="featuredCategory in featuredCategories">
             <div class="panel-heading">
                 <span style="color:black">{{featuredCategory.categoryName}}</span>
