@@ -1,4 +1,5 @@
 @import url("footer.css");
+@import url("common.css");
 @import url("social-media-icons.css");
 /*@import url("[component].css");*/
 
@@ -13,4 +14,3 @@ html {
     border-right: 1px solid #ddd;
     border-left: 1px solid #ddd;
 }
-

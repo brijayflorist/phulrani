@@ -93,12 +93,17 @@ categoryMenuDirective.directive('categoriesMenu', function (CategoriesStore, $ti
                 }
                 return false;
             };
-
+            var render_selection = function () {
+                $(this).closest("ul").children(".active").removeClass("active").children(".current").removeClass("current");
+                $(this).addClass("active").children("a").addClass("current");
+            };
             var createMenuItem = function (category, parentCategories) {
                 var menuItem = angular.element('<li id="cat_' + category.id + '"></li>');
                 var menuLink = angular.element('<a>' + category.name + '</a>');
                 var parentCategories = [];
                 var menuItemPromise = $.Deferred();
+                
+
                 if (category.childs.length > 0) {
                     menuItem.addClass('dropdown');
                     menuItem.append(menuLink);
@@ -123,10 +128,7 @@ categoryMenuDirective.directive('categoriesMenu', function (CategoriesStore, $ti
 
                 } else {
                     menuLink.attr('href', '#/category/' + category.id);
-                    //menuLink.on("click", function () {
-                    //    $(this).closest("ul").removeClass("active");
-                    //    $(this).addClass("current").parent().addClass("active");
-                    //});
+                    menuItem.on("click", render_selection);
                     menuItem.append(menuLink);
                     menuItemPromise.resolve(menuItem);
                 }
@@ -135,7 +137,7 @@ categoryMenuDirective.directive('categoriesMenu', function (CategoriesStore, $ti
 
             var link = function (scope, element, attr) {
                 var menuBar = angular.element('<ul class="nav navbar-nav"></ul>');
-                var homeMenuItem = angular.element('<li class=""><a href="#/home">Home <span class="sr-only">(current)</span></a></li>');
+                var homeMenuItem = angular.element('<li class=""><a href="#/home">Home <span class="sr-only"></span></a></li>').on("click", render_selection);
                 menuBar.append(homeMenuItem);
 
                 var rootCategoriesFetchPromise = CategoriesStore.getRootCategories();
