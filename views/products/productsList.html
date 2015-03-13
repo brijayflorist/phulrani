@@ -1,0 +1,23 @@
+﻿<div class="wrapper">
+    <div class="container-fluid">
+        <div>
+            <div class="product-list-title">
+                <span>{{title}}</span>                
+            </div>
+            <div class="row filter-row">
+                <span style="padding: 10px; line-height: 60px;">found <b>{{productCount}}</b> products</span>
+                <div style="width:200px;float:right;">
+                    <div range-slider min="minPrice" max="maxPrice" model-min="userMinPrice" model-max="userMaxPrice" step="5" filter="currency" filter-options="Rs."></div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div>
+                        <product-info-box ng-repeat="product in products" class="col-xs-6 col-md-3" product="product"></product-info-box>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
