@@ -37,19 +37,30 @@
 			}
         })
         .state('main.category', {
-            url: '/category/:categoryID',
+            url: '/category/:categoryID',   //NR: keeping this way for URL based category access. Can be also achieved using below search.
             resolve: {
-                productsByCategory: function (ProductsStore, $stateParams) { return ProductsStore.getProductsByCategory($stateParams.categoryID); },
+                productsFiltered: function (ProductsStore, $stateParams) { return ProductsStore.getProductsByCategory($stateParams.categoryID); },
                 category: function (CategoriesStore, $stateParams) { return CategoriesStore.getCategoryByID($stateParams.categoryID); }
             },
             views: {
                 'PageContent@': {
-                    templateUrl: "views/categories/categoryDetails.html",
-                    controller: "categoryDetailsController"
+                    templateUrl: "views/products/productsList.html",
+                    controller: "productsFilterController"
                 }
             }
-        }
-
-    );
+        })
+        .state('main.search', {
+            resolve: {
+                productsFiltered: function (ProductsStore, $stateParams) { return ProductsStore.search($stateParams.categoryID, $stateParams.key, $stateParams.sort, $stateParams.price_range); },
+                category: function (CategoriesStore, $stateParams) { return CategoriesStore.getCategoryByID($stateParams.categoryID); }
+            },
+            views: {
+                'PageContent@': {
+                    templateUrl: "views/products/productsList.html",
+                    controller: "productsFilterController"
+                }
+            },
+            params: {'categoryID':'', 'key':'', 'sort':'', 'price_range':''}
+        });
 
 });
