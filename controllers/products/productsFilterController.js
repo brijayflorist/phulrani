@@ -1,6 +1,5 @@
 angular.module('home.productsFilter', ['productsStore.services',
-                                        'phulrani.productInfoDirectives',
-                                        'ui-rangeSlider'])
+                                        'phulrani.productInfoDirectives'])
 
 .controller('productsFilterController', function ($scope, $state, $stateParams, ProductsStore, productsFiltered, category) {
     //NR:  Will populate products base on category passed in $stateparams and will be rendered inside the CategoryDetails html template
@@ -13,26 +12,32 @@ angular.module('home.productsFilter', ['productsStore.services',
         if (category) {
             title = title + "for " + category.name;
             conjunction = " and "
-        } else if(key){
+        }
+        if (key) {
             title = title + conjunction + " with tags " + key;
             conjunction = " and ";
-        } else if(price_range) {
+        }
+        if (price_range) {
             title = title + conjunction + "with price range " + price_range;
             conjunction = " and ";
-        } else if(sort) {
+        }
+        if (sort) {
             title = title + conjunction + "sorted on price " + (sort=="asc"?"Low to high":"High to low");
         }
         return title;
     }
     $scope.title = $scope.composeTitle(category, $stateParams.key, $stateParams.sort, $stateParams.price_range);
 
-    // set available range
-    $scope.minPrice = 100;
-    $scope.maxPrice = 999;
-
     // default the user's values to the available range
-    $scope.userMinPrice = $scope.minPrice;
-    $scope.userMaxPrice = $scope.maxPrice;
+    if ($stateParams.price_range !== "") {
+        $scope.filterMinPrice = ($stateParams.price_range) ? ($stateParams.price_range).split("-")[0] : $scope.minPrice;
+        $scope.filterMaxPrice = ($stateParams.price_range) ? ($stateParams.price_range).split("-")[1] : $scope.maxPrice;
+    }
+    $scope.doSearch = function () {
+        if ($scope.filterMinPrice && $scope.filterMinPrice !== "" && $scope.filterMaxPrice && $scope.filterMaxPrice !== "") {
+            $state.go("main.search", { "key": $stateParams.key, "price_range": ($scope.filterMinPrice + "-" + $scope.filterMaxPrice) });
+        }
+    };
 
 })
 

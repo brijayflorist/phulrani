@@ -35,7 +35,7 @@
 
 */
 
-(function() {
+(function () {
     'use strict';
 
     // check if we need to support legacy angular
@@ -47,7 +47,7 @@
      * @directive
      */
     angular.module('ui-rangeSlider', [])
-        .directive('rangeSlider', ['$document', '$filter', '$log', function($document, $filter, $log) {
+        .directive('rangeSlider', ['$document', '$filter', '$log', function ($document, $filter, $log) {
 
             // test for mouse, pointer or touch
             var eventNamespace = '.rangeSlider',
@@ -92,7 +92,7 @@
                 outEvent = actions.out + eventNamespace,
 
                 // get standarised clientX and clientY
-                client = function(f) {
+                client = function (f) {
                     try {
                         return [(f.clientX || f.originalEvent.clientX || f.originalEvent.touches[0].clientX), (f.clientY || f.originalEvent.clientY || f.originalEvent.touches[0].clientY)];
                     } catch (e) {
@@ -100,14 +100,14 @@
                     }
                 },
 
-                restrict = function(value) {
+                restrict = function (value) {
 
                     // normalize so it can't move out of bounds
                     return (value < 0 ? 0 : (value > 100 ? 100 : value));
 
                 },
 
-                isNumber = function(n) {
+                isNumber = function (n) {
                     // console.log(n);
                     return !isNaN(parseFloat(n)) && isFinite(n);
                 },
@@ -162,7 +162,7 @@
                     '</div>'
                 ].join(''),
                 scope: scopeOptions,
-                link: function(scope, element, attrs, controller) {
+                link: function (scope, element, attrs, controller) {
 
                     /**
                      *  FIND ELEMENTS
@@ -187,7 +187,7 @@
                      *  FALL BACK TO DEFAULTS FOR SOME ATTRIBUTES
                      */
 
-                    attrs.$observe('disabled', function(val) {
+                    attrs.$observe('disabled', function (val) {
                         if (!angular.isDefined(val)) {
                             scope.disabled = defaults.disabled;
                         }
@@ -195,7 +195,7 @@
                         scope.$watch('disabled', setDisabledStatus);
                     });
 
-                    attrs.$observe('orientation', function(val) {
+                    attrs.$observe('orientation', function (val) {
                         if (!angular.isDefined(val)) {
                             scope.orientation = defaults.orientation;
                         }
@@ -220,19 +220,19 @@
                         }
                     });
 
-                    attrs.$observe('step', function(val) {
+                    attrs.$observe('step', function (val) {
                         if (!angular.isDefined(val)) {
                             scope.step = defaults.step;
                         }
                     });
 
-                    attrs.$observe('decimalPlaces', function(val) {
+                    attrs.$observe('decimalPlaces', function (val) {
                         if (!angular.isDefined(val)) {
                             scope.decimalPlaces = defaults.decimalPlaces;
                         }
                     });
 
-                    attrs.$observe('showValues', function(val) {
+                    attrs.$observe('showValues', function (val) {
                         if (!angular.isDefined(val)) {
                             scope.showValues = defaults.showValues;
                         } else {
@@ -244,7 +244,7 @@
                         }
                     });
 
-                    attrs.$observe('pinHandle', function(val) {
+                    attrs.$observe('pinHandle', function (val) {
                         if (!angular.isDefined(val)) {
                             scope.pinHandle = null;
                         } else {
@@ -258,7 +258,7 @@
                         scope.$watch('pinHandle', setPinHandle);
                     });
 
-                    attrs.$observe('preventEqualMinMax', function(val) {
+                    attrs.$observe('preventEqualMinMax', function (val) {
                         if (!angular.isDefined(val)) {
                             scope.preventEqualMinMax = defaults.preventEqualMinMax;
                         } else {
@@ -270,7 +270,7 @@
                         }
                     });
 
-                    attrs.$observe('attachHandleValues', function(val) {
+                    attrs.$observe('attachHandleValues', function (val) {
                         if (!angular.isDefined(val)) {
                             scope.attachHandleValues = defaults.attachHandleValues;
                         } else {
@@ -374,8 +374,8 @@
                                 scope.modelMax = scope.max;
                             }
 
-                            var handle1pos = restrict(((scope.modelMin - scope.min) / range) * 100),
-                                handle2pos = restrict(((scope.modelMax - scope.min) / range) * 100),
+                            var handle1pos = restrict(((scope.slide_min - scope.min) / range) * 100),
+                                handle2pos = restrict(((scope.slide_max - scope.min) / range) * 100),
                                 value1pos,
                                 value2pos;
 
@@ -403,7 +403,7 @@
                                 filterOptions = filterOptions.map(function (arg) {
                                     if (isNumber(arg)) {
                                         return +arg;
-                                    } else if ((arg[0] == "\"" && arg[arg.length-1] == "\"") || (arg[0] == "\'" && arg[arg.length-1] == "\'")) {
+                                    } else if ((arg[0] == "\"" && arg[arg.length - 1] == "\"") || (arg[0] == "\'" && arg[arg.length - 1] == "\'")) {
                                         return arg.slice(1, -1);
                                     }
                                 });
@@ -467,7 +467,7 @@
                         var $handle = handles[index];
 
                         // on mousedown / touchstart
-                        $handle.bind(onEvent + 'X', function(event) {
+                        $handle.bind(onEvent + 'X', function (event) {
 
                             var handleDownClass = (index === 0 ? 'ngrs-handle-min' : 'ngrs-handle-max') + '-down',
                                 //unbind = $handle.add($document).add('body'),
@@ -482,7 +482,7 @@
                             }
 
                             // stop user accidentally selecting stuff
-                            angular.element('body').bind('selectstart' + eventNamespace, function() {
+                            angular.element('body').bind('selectstart' + eventNamespace, function () {
                                 return false;
                             });
 
@@ -501,7 +501,7 @@
                                 angular.element('body').addClass('ngrs-touching');
 
                                 // listen for mousemove / touchmove document events
-                                $document.bind(moveEvent, function(e) {
+                                $document.bind(moveEvent, function (e) {
                                     // prevent default
                                     e.preventDefault();
 
@@ -510,7 +510,9 @@
                                         proposal,
                                         other,
                                         per = (scope.step / range) * 100,
-                                        otherModelPosition = (((index === 0 ? scope.modelMax : scope.modelMin) - scope.min) / range) * 100;
+                                        otherModelPosition = (((index === 0 ? scope.slide_max : scope.slide_min) - scope.min) / range) * 100;
+
+                                    var slide_min, slide_max;
 
                                     if (currentClick[0] === "x") {
                                         return;
@@ -569,15 +571,15 @@
                                         if (index === 0) {
 
                                             // update model as we slide
-                                            scope.modelMin = parseFloat(parseFloat((((proposal * range) / 100) + scope.min)).toFixed(scope.decimalPlaces));
+                                            scope.slide_min = parseFloat(parseFloat((((proposal * range) / 100) + scope.min)).toFixed(scope.decimalPlaces));
 
                                         } else if (index === 1) {
 
-                                            scope.modelMax = parseFloat(parseFloat((((proposal * range) / 100) + scope.min)).toFixed(scope.decimalPlaces));
+                                            scope.slide_max = parseFloat(parseFloat((((proposal * range) / 100) + scope.min)).toFixed(scope.decimalPlaces));
                                         }
 
                                         // update angular
-                                        scope.$apply();
+                                        //scope.$apply();
 
                                         previousProposal = proposal;
 
@@ -585,7 +587,18 @@
 
                                     previousClick = currentClick;
 
-                                }).bind(offEvent, function() {
+                                }).bind(offEvent, function () {
+                                    if (index === 0) {
+
+                                        // update model as we slide
+                                        scope.modelMin = scope.slide_min;
+
+                                    } else if (index === 1) {
+
+                                        scope.modelMax = scope.slide_max;
+                                    }
+
+                                    scope.$apply();
 
                                     if (angular.isFunction(scope.onHandleUp)) {
                                         scope.onHandleUp();
@@ -632,7 +645,7 @@
                      * DESTROY
                      */
 
-                    scope.$on('$destroy', function() {
+                    scope.$on('$destroy', function () {
 
                         // unbind event from slider
                         $slider.off(eventNamespace);
@@ -657,11 +670,11 @@
 
                     $slider
                     // disable selection
-                        .bind('selectstart' + eventNamespace, function(event) {
+                        .bind('selectstart' + eventNamespace, function (event) {
                             return false;
                         })
                         // stop propagation
-                        .bind('click', function(event) {
+                        .bind('click', function (event) {
                             event.stopPropagation();
                         });
 
@@ -676,11 +689,11 @@
     // requestAnimationFramePolyFill
     // http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
     // shim layer with setTimeout fallback
-    window.requestAnimFrame = (function() {
+    window.requestAnimFrame = (function () {
         return window.requestAnimationFrame ||
             window.webkitRequestAnimationFrame ||
             window.mozRequestAnimationFrame ||
-            function(callback) {
+            function (callback) {
                 window.setTimeout(callback, 1000 / 60);
             };
     })();

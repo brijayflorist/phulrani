@@ -5,9 +5,21 @@
                 <span>{{title}}</span>                
             </div>
             <div class="row filter-row">
-                <span style="padding: 10px; line-height: 60px;">found <b>{{productCount}}</b> products</span>
-                <div style="width:200px;float:right;">
-                    <div range-slider min="minPrice" max="maxPrice" model-min="userMinPrice" model-max="userMaxPrice" step="5" filter="currency" filter-options="Rs."></div>
+                <span style="padding: 10px; line-height: 45px;">found <b>{{productCount}}</b> products</span>
+                <div class="input-group" style="width:230px;float:right;margin-top:10px;">
+                    <table>
+                        <tr>
+                            <td><span style="width:50px;">Price range :</span></td>
+                            <td><input type="text" ng-model="filterMinPrice" style="width: 40px; text-align: center;" /></td>
+                            <td><span style="margin:5px;"> - </span></td>
+                            <td><input type="text" ng-model="filterMaxPrice" style="width: 40px; text-align: center;" /></td>
+                            <td><button style="margin-left:5px;" type="button" ng-click="doSearch()">Go!</button></td>
+                        </tr>
+                    </table>
+                    
+                      
+                    
+                    
                 </div>
             </div>
             <div>
