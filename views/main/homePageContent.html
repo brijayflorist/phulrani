@@ -1,20 +1,44 @@
-<div class="wrapper">
+<div>
 
     <!--<div style="height: auto; width: 50%; margin: 0px auto;">--> <!--Responsive container Div [NR: commented related code in directive too]-->
-    <div class="slides-container" style="position: relative; top: 0px; left: 0px;width: 900px;height: 300px; margin: 0px auto;">
-        <!-- Slides Container -->
-        <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 900px; height: 300px;">
-            <div ng-repeat="image in carouselImages" enable-jssor jssor-options="homePageCarouselConfig" jssor-trigger={{$last}}>
-                <center><img u="image" src="" ng-src={{image.path}} /></center>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="slides-container" style="position: relative; top: 0px; left: 0px;width: 580px;height: 350px; margin: 0px auto;">
+                    <!-- Slides Container -->
+                    <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 580px; height: 350px;">
+                        <div ng-repeat="image in carouselImages" enable-jssor jssor-options="homePageCarouselConfig" jssor-trigger={{$last}}>
+                            <center><img u="image" src="" ng-src={{image.path}} /></center>
+                        </div>
+                    </div>
+                    <!-- Arrow Left -->
+                    <span u="arrowleft" class="jssora11l" style="width: 28px; height: 40px; top: 123px; left: 8px;">
+                    </span>
+                    <!-- Arrow Right -->
+                    <span u="arrowright" class="jssora11r" style="width: 28px; height: 40px; top: 123px; right: 8px">
+                    </span>
+                    <!-- Arrow Navigator Skin End -->
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="row">
+                    <div ng-repeat="tileImage in row1TileImages">
+                        <div class="col-sm-4"><img ng-src="{{tileImage.path}}" alt="{{tileImage.tooltip}}" title="{{tileImage.tooltip}}" class="img-responsive" /></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div ng-repeat="tileImage in row2TileImages">
+                        <div class="col-sm-4"><img ng-src="{{tileImage.path}}" class="img-responsive" /></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div ng-repeat="tileImage in row3TileImages">
+                        <div class="col-sm-4"><img ng-src="{{tileImage.path}}" class="img-responsive" /></div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <!-- Arrow Left -->
-        <span u="arrowleft" class="jssora11l" style="width: 28px; height: 40px; top: 123px; left: 8px;">
-        </span>
-        <!-- Arrow Right -->
-        <span u="arrowright" class="jssora11r" style="width: 28px; height: 40px; top: 123px; right: 8px">
-        </span>
-        <!-- Arrow Navigator Skin End -->
     </div>
     <!--</div>-->
     <p>&nbsp;</p>

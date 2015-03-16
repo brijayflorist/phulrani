@@ -1,25 +1,22 @@
-<div class="row">
-    <div class="col-lg-7">
-        <!--<div class="s-6 l-2">-->
-        <img src="img/phulrani.gif">
-        <!--</div>-->
-    </div>
-    <div class="col-lg-1">
-        <div style="margin-top:30px;">
-            Call Us 9999999999
+<div class="container-fluid">
+    <div class="row" style="background-color:#f337ab7">
+        <div class="col-lg-7">
+            <img src="img/phulrani.jpg" class="img-responsive img-rounded" style="height:100px;width:100px">
+        </div>
+        <div class="col-lg-1">
+            <div style="margin-top:30px;">
+                Call Us 9999999999
+            </div>
+        </div>
+        <div class="col-lg-3 pull-right">
+
+            <div class="input-group" style="float:right;margin-top:30px">
+                <input type="text" class="form-control" placeholder="Search for flowers, chocolates, gifts and more" ng-model="searchKeyword">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="doSearch()">Go!</button>
+                </span>
+            </div>
         </div>
     </div>
-    <div class="col-lg-3 pull-right">
-        <!--<div style="float:right;margin-top:30px">
-            <form role="search">
-                <input type="text" class="form-control" placeholder="Search" ng-model="searchKeyword"><a ng-click="doSearch()">search</a>
-            </form>
-        </div>-->
-        <div class="input-group" style="float:right;margin-top:30px">
-            <input type="text" class="form-control" placeholder="Search for..." ng-model="searchKeyword">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button" ng-click="doSearch()">Go!</button>
-            </span>
-        </div><!-- /input-group -->
-    </div>
 </div>
+
